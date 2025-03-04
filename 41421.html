@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Видеоигры</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fff;
+        }
+        .header {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .lang-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .lang-button {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            font-size: 14px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .lang-button:hover {
+            background-color: #555;
+        }
+        .game-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .game-card {
+            background-color: #444;
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .game-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .game-card h3 {
+            margin-top: 15px;
+        }
+        .donate-section {
+            background-color: #333;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .donate-section h2 {
+            color: #f4b400;
+        }
+        .donate-option {
+            background-color: #444;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            display: inline-block;
+            width: 150px;
+        }
+        .donate-option p {
+            font-size: 16px;
+            color: #fff;
+        }
+        .donate-option span {
+            color: #f4b400;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1 id="site-title">Видеоигры</h1>
+        <div class="lang-selector">
+            <button class="lang-button" onclick="changeLanguage('kk')">Қазақша</button>
+            <button class="lang-button" onclick="changeLanguage('ru')">Русский</button>
+            <button class="lang-button" onclick="changeLanguage('en')">English</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2 id="featured-games-title">Таңдаулы ойындар</h2>
+
+        <div class="game-section">
+            <!-- Minecraft Game Card -->
+            <div class="game-card">
+                <img id="minecraft-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCTT8o6deC4Pj7sYfFG033BFQ5qoaHXxy_Yg&s" alt="Minecraft Image">
+                <h3 id="minecraft-title">Minecraft</h3>
+                <p id="minecraft-desc">Құрылыс жасау және ашық әлемде өмір сүру.</p>
+            </div>
+
+            <!-- Counter-Strike Game Card -->
+            <div class="game-card">
+                <img id="csgo-img" src="https://upload.wikimedia.org/wikipedia/ru/d/db/Counter-strike_2.jpg" alt="Counter-Strike Image">
+                <h3 id="csgo-title">Counter-Strike</h3>
+                <p id="csgo-desc">Командалық ойын, қарумен шайқас.</p>
+            </div>
+        </div>
+
+        <div class="donate-section">
+            <h2 id="donate-title">Донат жасау</h2>
+            <div class="donate-option">
+                <p>Minecraft - VIP</p>
+                <span id="donate-minecraft-price">1000 KZT</span>
+            </div>
+            <div class="donate-option">
+                <p>Counter-Strike - Prime</p>
+                <span id="donate-csgo-price">1500 KZT</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const content = {
+            kk: {
+                title: "Видеоигры",
+                featuredGames: "Таңдаулы ойындар",
+                minecraft: {
+                    title: "Minecraft",
+                    desc: "Құрылыс жасау және ашық әлемде өмір сүру.",
+                    donatePrice: "1000 KZT"
+                },
+                csgo: {
+                    title: "Counter-Strike",
+                    desc: "Командалық ойын, қарумен шайқас.",
+                    donatePrice: "1500 KZT"
+                },
+                donate: {
+                    title: "Донат жасау"
+                }
+            },
+            ru: {
+                title: "Видеоигры",
+                featuredGames: "Популярные игры",
+                minecraft: {
+                    title: "Minecraft",
+                    desc: "Строительство и жизнь в открытом мире.",
+                    donatePrice: "1000 KZT"
+                },
+                csgo: {
+                    title: "Counter-Strike",
+                    desc: "Командная игра с оружием.",
+                    donatePrice: "1500 KZT"
+                },
+                donate: {
+                    title: "Сделать донат"
+                }
+            },
+            en: {
+                title: "Video Games",
+                featuredGames: "Featured Games",
+                minecraft: {
+                    title: "Minecraft",
+                    desc: "Building and survival in an open world.",
+                    donatePrice: "1000 KZT"
+                },
+                csgo: {
+                    title: "Counter-Strike",
+                    desc: "Team-based game with guns.",
+                    donatePrice: "1500 KZT"
+                },
+                donate: {
+                    title: "Donate"
+                }
+            }
+        };
+
+        function changeLanguage(language) {
+            document.getElementById("site-title").innerText = content[language].title;
+            document.getElementById("featured-games-title").innerText = content[language].featuredGames;
+            document.getElementById("minecraft-title").innerText = content[language].minecraft.title;
+            document.getElementById("minecraft-desc").innerText = content[language].minecraft.desc;
+            document.getElementById("csgo-title").innerText = content[language].csgo.title;
+            document.getElementById("csgo-desc").innerText = content[language].csgo.desc;
+            document.getElementById("donate-title").innerText = content[language].donate.title;
+            document.getElementById("donate-minecraft-price").innerText = content[language].minecraft.donatePrice;
+            document.getElementById("donate-csgo-price").innerText = content[language].csgo.donatePrice;
+        }
+    </script>
+
+</body>
+</html>
